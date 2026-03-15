@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="dc-sample.ZPM">
+  <Document name="ipm-module-budget.ZPM">
     <Module>
-      <Name>dc-sample</Name>
-      <Version>2.0.12</Version>
+      <Name>ipm-module-budget</Name>
+      <Version>0.0.1</Version>
       <Description>Basic InterSystems IRIS Development Template</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>

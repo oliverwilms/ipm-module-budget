@@ -1,0 +1,372 @@
+docker compose up -d
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+[+] Building 1103.5s (10/11)                                                                             docker:default
+ => [iris internal] load build definition from Dockerfile                                                          0.0s
+ => => transferring dockerfile: 1.82kB                                                                             0.0s
+ => [iris internal] load metadata for docker.io/intersystemsdc/iris-community:preview                              0.6s
+ => [iris internal] load .dockerignore                                                                             0.0s
+ => => transferring context: 130B                                                                                  0.0s
+ => [iris final 1/3] FROM docker.io/intersystemsdc/iris-community:preview@sha256:7d6c62def4f1bc118800cb32ac72b58d  0.0s
+ => [iris] https://github.com/grongierisc/iris-docker-multi-stage-script/releases/latest/download/copy-data.py     0.5s
+ => [iris internal] load build context                                                                             0.0s
+ => => transferring context: 26.65kB                                                                               0.0s
+ => CACHED [iris builder 2/4] WORKDIR /home/irisowner/dev                                                          0.0s
+ => CACHED [iris builder 3/4] COPY .iris_init /home/irisowner/.iris_init                                           0.0s
+ => ERROR [iris builder 4/4] RUN --mount=type=bind,src=.,dst=.     pip3 install -r requirements.txt &&     iri  1102.7s
+ => CACHED [iris final 2/3] ADD --chown=irisowner:irisowner https://github.com/grongierisc/iris-docker-multi-stag  0.0s
+------
+ > [iris builder 4/4] RUN --mount=type=bind,src=.,dst=.     pip3 install -r requirements.txt &&     iris start IRIS &&
+iris session IRIS < iris.script &&     iris stop IRIS quietly:
+1.329 Defaulting to user installation because normal site-packages is not writeable
+1.634 Using 'iris.cpf' configuration file
+1.843
+1.922 Starting Control Process
+1.922 Global buffer setting requires attention.  Auto-selected 25% of total memory.
+1.922 Allocated 2721MB shared memory
+1.922 1982MB global buffers, 198MB routine buffers
+2.066 This copy of InterSystems IRIS has been licensed for use exclusively by:
+2.066 InterSystems IRIS Community
+2.066 Copyright (c) 1986-2026 by InterSystems Corporation
+2.066 Any other use is a violation of your license agreement
+10.54
+10.54 1 alert(s) during startup. See messages.log for details.
+10.56 Starting IRIS
+10.56
+10.56
+10.56 Node: buildkitsandbox, Instance: IRIS
+10.56
+10.56 USER>
+10.56
+10.56 %SYS>
+10.56
+10.56 %SYS>
+10.56
+10.56 %SYS>
+10.56
+10.56 %SYS>
+10.69
+10.69 %SYS>
+14.28
+14.28 Building dependency graph...Done.
+14.38 [%SYS|passwordless]       Initialize START
+14.38 [%SYS|passwordless]       Initialize SUCCESS
+14.38 [%SYS|passwordless]       Reload START (/usr/irissys/ipm/passwordless/1.0.5/)
+14.50 [%SYS|passwordless]       Reload SUCCESS
+14.50 [passwordless]    Module object refreshed.
+14.50 [%SYS|passwordless]       Validate START
+14.50 [%SYS|passwordless]       Validate SUCCESS
+14.50 [%SYS|passwordless]       Compile START
+14.52 [%SYS|passwordless]       Compile SUCCESS
+14.52 [%SYS|passwordless]       Activate START
+14.52 [%SYS|passwordless]       Configure START
+14.63 OK
+14.63 [%SYS|passwordless]       Configure SUCCESS
+14.78 [%SYS|passwordless]       Activate SUCCESS
+15.28 %SYS>
+15.28
+15.28 %SYS>
+15.28
+15.28 %SYS>
+15.28
+15.28 %SYS>
+15.28
+15.28 %SYS>
+15.28
+15.28 %SYS>
+15.28
+15.28 %SYS>
+15.28
+15.28 %SYS>
+15.28
+15.28 %SYS>
+15.28
+15.28 Load started on 03/16/2026 15:03:55
+15.28 Loading file /home/irisowner/dev/App.Installer.cls as udl
+15.40 Compiling class App.Installer
+15.41 Compiling routine App.Installer.1
+15.41 Load finished successfully.
+15.41
+15.41 %SYS>
+15.41 2026-03-16 15:03:55 0 App.Installer: Installation starting at 2026-03-16 15:03:55, LogLevel=3
+15.41 2026-03-16 15:03:55 3 SetVariable: Namespace=IRISAPP
+15.41 2026-03-16 15:03:55 3 SetVariable: database=irisapp
+15.41 2026-03-16 15:03:55 3 Evaluate: ${Namespace} -> IRISAPP
+15.41 2026-03-16 15:03:55 3 Evaluate: ${Namespace}-CODE -> IRISAPP-CODE
+15.41 2026-03-16 15:03:55 3 Evaluate: ${Namespace}-DATA -> IRISAPP-DATA
+15.41 2026-03-16 15:03:55 3 Evaluate: ${Namespace}-DATA -> IRISAPP-DATA
+15.41 2026-03-16 15:03:55 3 Evaluate: ${mgrdir}${database}/data -> irisapp/data
+15.41 2026-03-16 15:03:55 3 Evaluate: %DB_${Namespace}-DATA -> %DB_IRISAPP-DATA
+15.41 2026-03-16 15:03:55 1 CreateDatabase: Creating database IRISAPP-DATA in /usr/irissys/mgr/irisapp/data/ with resource %DB_IRISAPP-DATA
+15.41 2026-03-16 15:03:55 2 CreateDatabase: Overwriting /usr/irissys/mgr/irisapp/data/IRIS.DAT
+15.44 2026-03-16 15:03:55 2 CreateDatabase: Adding database IRISAPP-DATA
+16.12 2026-03-16 15:03:56 2 CreateDatabase: Creating and assigning resource '%DB_IRISAPP-DATA' to IRISAPP-DATA
+16.13 2026-03-16 15:03:56 3 Evaluate: ${Namespace}-CODE -> IRISAPP-CODE
+16.13 2026-03-16 15:03:56 3 Evaluate: ${mgrdir}${database}/code -> irisapp/code
+16.13 2026-03-16 15:03:56 3 Evaluate: %DB_${Namespace}-CODE -> %DB_IRISAPP-CODE
+16.13 2026-03-16 15:03:56 1 CreateDatabase: Creating database IRISAPP-CODE in /usr/irissys/mgr/irisapp/code/ with resource %DB_IRISAPP-CODE
+16.13 2026-03-16 15:03:56 2 CreateDatabase: Overwriting /usr/irissys/mgr/irisapp/code/IRIS.DAT
+16.16 2026-03-16 15:03:56 2 CreateDatabase: Adding database IRISAPP-CODE
+16.17 2026-03-16 15:03:56 2 CreateDatabase: Creating and assigning resource '%DB_IRISAPP-CODE' to IRISAPP-CODE
+16.18 2026-03-16 15:03:56 1 CreateNamespace: Creating namespace IRISAPP using IRISAPP-CODE/IRISAPP-DATA
+16.18 2026-03-16 15:03:56 2 CreateNamespace: Adding namespace IRISAPP
+16.23 2026-03-16 15:03:56 1 ActivateConfiguration: Activating Configuration
+16.26
+16.26 Enabling namespace 'IRISAPP' for Interoperability:
+16.26   * This instance is not in a mirror
+16.26     * Mappings
+16.26       - Class Mappings:
+16.26         + Adding class mapping Ens -> ENSLIB
+16.27         + Adding class mapping EnsLib -> ENSLIB
+16.27         + Adding class mapping EnsPortal -> ENSLIB
+16.28         + Adding class mapping CSPX.Dashboard -> ENSLIB
+16.28       - Updating CPF
+16.29       - Moving changes to active configuration
+16.30       - Loading new mappings for namespace 'IRISAPP'
+16.39     * CLASS Mappings Complete!
+16.39       - Routine Mappings:
+16.39         + Adding routine mapping Ens* -> ENSLIB
+16.40       - Updating CPF
+16.41       - Moving changes to active configuration
+16.42       - Loading new mappings for namespace 'IRISAPP'
+16.44     * ROUTINE Mappings Complete!
+16.44       - Global Mappings:
+16.48         + Creating new global directory entry for ^EnsDICOM.Dictionary
+16.48         + Creating new global directory entry for ^EnsEDI.Description
+16.48         + Creating new global directory entry for ^EnsEDI.Schema
+16.48         + Creating new global directory entry for ^EnsEDI.X12.Description
+16.48         + Creating new global directory entry for ^EnsEDI.X12.Schema
+16.48         + Creating new global directory entry for ^IRIS.Msg
+16.49         + Creating new global directory entry for ^IRIS.MsgNames
+16.49         + Adding global mapping ^EnsDICOM.Dictionary -> ENSLIB
+16.49         + Adding global mapping ^EnsEDI.Description("X","X12") -> ENSLIB
+16.50         + Adding global mapping ^EnsEDI.Schema("HIPAA_4010") -> ENSLIB
+16.51         + Adding global mapping ^EnsEDI.Schema("HIPAA_5010") -> ENSLIB
+16.51         + Adding global mapping ^EnsEDI.Schema("HIPAA_6020") -> ENSLIB
+16.52         + Adding global mapping ^EnsEDI.Schema("ISC_00401") -> ENSLIB
+16.52         + Adding global mapping ^EnsEDI.Schema("ISC_00405") -> ENSLIB
+16.52         + Adding global mapping ^EnsEDI.X12.Description("HIPAA_4010") -> ENSLIB
+16.53         + Adding global mapping ^EnsEDI.X12.Description("HIPAA_5010") -> ENSLIB
+16.54         + Adding global mapping ^EnsEDI.X12.Description("HIPAA_6020") -> ENSLIB
+16.54         + Adding global mapping ^EnsEDI.X12.Schema("HIPAA_4010") -> ENSLIB
+16.55         + Adding global mapping ^EnsEDI.X12.Schema("HIPAA_5010") -> ENSLIB
+16.55         + Adding global mapping ^EnsEDI.X12.Schema("HIPAA_6020") -> ENSLIB
+16.56         + Adding global mapping ^IRIS.Msg("Arial,Tahoma,Verdana") -> ENSLIB
+16.57         + Adding global mapping ^IRIS.Msg("Confirm") -> ENSLIB
+16.57         + Adding global mapping ^IRIS.Msg("EDIDocumentView") -> ENSLIB
+16.57         + Adding global mapping ^IRIS.Msg("ENSEMBLE") -> ENSLIB
+16.58         + Adding global mapping ^IRIS.Msg("Ens") -> ENSLIB
+16.58         + Adding global mapping ^IRIS.Msg("EnsAlert") -> ENSLIB
+16.59         + Adding global mapping ^IRIS.Msg("EnsBPL") -> ENSLIB
+16.59         + Adding global mapping ^IRIS.Msg("EnsColumns") -> ENSLIB
+16.60         + Adding global mapping ^IRIS.Msg("EnsDICOM") -> ENSLIB
+16.60         + Adding global mapping ^IRIS.Msg("EnsEDI") -> ENSLIB
+16.60         + Adding global mapping ^IRIS.Msg("EnsEDIEDIFACT") -> ENSLIB
+16.61         + Adding global mapping ^IRIS.Msg("EnsEDIHL7") -> ENSLIB
+16.61         + Adding global mapping ^IRIS.Msg("EnsEDISEF") -> ENSLIB
+16.62         + Adding global mapping ^IRIS.Msg("EnsEDIX12") -> ENSLIB
+16.62         + Adding global mapping ^IRIS.Msg("EnsEnt") -> ENSLIB
+16.63         + Adding global mapping ^IRIS.Msg("EnsLDAP") -> ENSLIB
+16.63         + Adding global mapping ^IRIS.Msg("EnsMQTT") -> ENSLIB
+16.63         + Adding global mapping ^IRIS.Msg("EnsPushNotifications") -> ENSLIB
+16.64         + Adding global mapping ^IRIS.Msg("EnsRecordMap") -> ENSLIB
+16.64         + Adding global mapping ^IRIS.Msg("EnsSAP") -> ENSLIB
+16.65         + Adding global mapping ^IRIS.Msg("EnsSR") -> ENSLIB
+16.65         + Adding global mapping ^IRIS.Msg("EnsSearchTable") -> ENSLIB
+16.65         + Adding global mapping ^IRIS.Msg("EnsWf") -> ENSLIB
+16.66         + Adding global mapping ^IRIS.Msg("EnsXPATH") -> ENSLIB
+16.66         + Adding global mapping ^IRIS.Msg("EnsebXML") -> ENSLIB
+16.67         + Adding global mapping ^IRIS.Msg("Ensemble") -> ENSLIB
+16.67         + Adding global mapping ^IRIS.Msg("ITK") -> ENSLIB
+16.67         + Adding global mapping ^IRIS.Msg("RuleEditor") -> ENSLIB
+16.68         + Adding global mapping ^IRIS.Msg("Workflow") -> ENSLIB
+16.68         + Adding global mapping ^IRIS.Msg("tahoma,verdana") -> ENSLIB
+16.69         + Adding global mapping ^IRIS.MsgNames("Arial,Tahoma,Verdana") -> ENSLIB
+16.70         + Adding global mapping ^IRIS.MsgNames("Confirm") -> ENSLIB
+16.70         + Adding global mapping ^IRIS.MsgNames("EDIDocumentView") -> ENSLIB
+16.70         + Adding global mapping ^IRIS.MsgNames("ENSEMBLE") -> ENSLIB
+16.71         + Adding global mapping ^IRIS.MsgNames("Ens") -> ENSLIB
+16.71         + Adding global mapping ^IRIS.MsgNames("EnsAlert") -> ENSLIB
+16.72         + Adding global mapping ^IRIS.MsgNames("EnsBPL") -> ENSLIB
+16.72         + Adding global mapping ^IRIS.MsgNames("EnsColumns") -> ENSLIB
+16.72         + Adding global mapping ^IRIS.MsgNames("EnsDICOM") -> ENSLIB
+16.73         + Adding global mapping ^IRIS.MsgNames("EnsEDI") -> ENSLIB
+16.73         + Adding global mapping ^IRIS.MsgNames("EnsEDIEDIFACT") -> ENSLIB
+16.74         + Adding global mapping ^IRIS.MsgNames("EnsEDIHL7") -> ENSLIB
+16.74         + Adding global mapping ^IRIS.MsgNames("EnsEDISEF") -> ENSLIB
+16.74         + Adding global mapping ^IRIS.MsgNames("EnsEDIX12") -> ENSLIB
+16.75         + Adding global mapping ^IRIS.MsgNames("EnsEnt") -> ENSLIB
+16.75         + Adding global mapping ^IRIS.MsgNames("EnsLDAP") -> ENSLIB
+16.76         + Adding global mapping ^IRIS.MsgNames("EnsMQTT") -> ENSLIB
+16.76         + Adding global mapping ^IRIS.MsgNames("EnsPushNotifications") -> ENSLIB
+16.76         + Adding global mapping ^IRIS.MsgNames("EnsRecordMap") -> ENSLIB
+16.77         + Adding global mapping ^IRIS.MsgNames("EnsSAP") -> ENSLIB
+16.77         + Adding global mapping ^IRIS.MsgNames("EnsSR") -> ENSLIB
+16.78         + Adding global mapping ^IRIS.MsgNames("EnsSearchTable") -> ENSLIB
+16.78         + Adding global mapping ^IRIS.MsgNames("EnsWf") -> ENSLIB
+16.79         + Adding global mapping ^IRIS.MsgNames("EnsXPATH") -> ENSLIB
+16.79         + Adding global mapping ^IRIS.MsgNames("EnsebXML") -> ENSLIB
+16.79         + Adding global mapping ^IRIS.MsgNames("Ensemble") -> ENSLIB
+16.80         + Adding global mapping ^IRIS.MsgNames("ITK") -> ENSLIB
+16.80         + Adding global mapping ^IRIS.MsgNames("RuleEditor") -> ENSLIB
+16.81         + Adding global mapping ^IRIS.MsgNames("Workflow") -> ENSLIB
+16.81         + Adding global mapping ^IRIS.MsgNames("tahoma,verdana") -> ENSLIB
+16.82       - Updating CPF
+16.83       - Moving changes to active configuration
+16.84       - Loading new mappings for namespace 'IRISAPP'
+16.88     * GLOBAL Mappings Complete!
+16.88     * Validating Installation in 'IRISAPP'
+16.88       - Checking class 'Ens.Director' ...
+16.90       - Checking class 'Ens.MessageBody' ...
+16.90       - Checking class 'Ens.StudioManager' ...
+16.90     * Creating Interoperability Management Portal
+16.90       - Configuring portal: /csp/irisapp [IRISAPP] using /usr/irissys/csp/irisapp
+16.90       - Creating directory: /usr/irissys/csp/irisapp
+16.90       - Creating CSP Application: /csp/irisapp
+16.90           Name                 = [/csp/irisapp]
+16.90           AutheEnabled         = [36]
+16.90           Enabled              = [1]
+16.90           Description          = [Interoperability Management Portal]
+16.90           Resource             = [%Ens_Portal]
+16.90           AutoCompile          = [0]
+16.90           Timeout              = [900]
+16.90           Path                 = [/usr/irissys/csp/irisapp]
+16.90           Recurse              = [1]
+16.90           LoginPage            = []
+16.90           InbndWebServicesEnabled = [1]
+16.90           TwoFactorEnabled     = [0]
+16.90           IsNameSpaceDefault   = [0]
+16.90           PermittedClasses     = []
+16.90           MatchRoles           = []
+16.90           Type                 = [2]
+16.90           CookiePath           = [/csp/irisapp/]
+16.90           LockCSPName          = [1]
+16.90           NameSpace            = [IRISAPP]
+16.90           CSPZENEnabled        = [1]
+16.90           GroupById            = [%ISCMgtPortal]
+16.90           ServeFiles           = [2]
+16.90           UseCookies           = [2]
+16.97       - Removing legacy CSP pages and files from directory '/usr/irissys/csp/irisapp/'
+16.97     * Adding explicit SQL privileges to Interoperability Roles
+16.97       - Adding SQL privileges for role '%EnsRole_Administrator'
+17.04       - Adding SQL privileges for role '%EnsRole_AlertOperator'
+17.04       - Adding SQL privileges for role '%EnsRole_Developer'
+17.04       - Adding SQL privileges for role '%EnsRole_InteropEditorsAPI'
+17.04       - Adding SQL privileges for role '%EnsRole_Monitor'
+17.04       - Adding SQL privileges for role '%EnsRole_Operator'
+17.04       - Adding SQL privileges for role '%EnsRole_RegistryManager'
+17.05       - Adding SQL privileges for role '%EnsRole_RegistrySelect'
+17.05       - Adding SQL privileges for role '%EnsRole_RulesDeveloper'
+17.05       - Adding SQL privileges for role '%EnsRole_TempSQLDict'
+17.05       - Adding SQL privileges for role '%EnsRole_WebDeveloper'
+17.05     * Modifying Interop Editors API app to use %EnsRole_InteropEditorsAPI role
+17.05       - Interop Editors application already has %EnsRole_InteropEditorsAPI role
+17.05     * Adding Interoperability SearchTables
+17.05       - Validating all SearchTable metadata
+17.07         - Regenerating metadata for EnsLib.EDI.EDIFACT.SearchTable
+17.11         - Regenerating metadata for EnsLib.EDI.X12.SearchTable
+17.11         - Regenerating metadata for EnsLib.EDI.XML.SearchTable
+17.11         - Regenerating metadata for EnsLib.XML.SearchTable
+17.12     - Setting initial default Purge Settings
+17.12     * Converting Business Process Pending Responses list storage
+17.12       - No Business Process Pending Responses to upgrade
+17.12     * Converting Storage of X12 Relational Conditions
+17.12       - No custom X12 schemas in need of upgrade
+17.12     * Legacy CSP Portal not installed, so no legacy CSP pages recompiled.
+17.12     * Generating meta data for Interoperability Analytics items
+17.17     Importing: Ens/Analytics/ActivityVolumeAndDuration.dashboard
+17.39
+17.39 Imported 1 item.
+17.39 Encountered 0 errors during import.
+17.40
+17.40     * Setting new namespace flags
+17.40     - Enabling SyncCommit for Business Services
+17.40     * Examining if Interoperability temporary global mapping already configured
+17.40       - Creating Interoperability temporary Data location
+17.40       - Creating directory for new Interoperability temporary database /usr/irissys/mgr/irisapp/data/irisapp-dataenstemp/
+17.40       - Creating database for new Interoperability Temporary Data database /usr/irissys/mgr/irisapp/data/irisapp-dataenstemp/. Protected by resource %DB_IRISAPP-DATA
+17.46       - Created global mapping IRIS.Temp.EnsHostTotals for namespace IRISAPP to remain in IRISTEMP
+17.47       - Created global mapping IRIS.Temp.EnsPortal* for namespace IRISAPP to remain in IRISTEMP
+17.47       - Created global mapping IRIS.Temp.EnsPublic* for namespace IRISAPP to remain in IRISTEMP
+17.48       - Created global mapping IRIS.Temp.Ens* for namespace IRISAPP to new temporary database
+17.48       - Updating CPF
+17.49       - Moving changes to active configuration
+17.50       - Loading new mappings for namespace 'IRISAPP'
+17.53       - Activated CPF change
+17.53     * Examining if secondary global mapping already configured
+17.53       - Creating Seconday Data location
+17.53       - Creating directory for new Secondary database /usr/irissys/mgr/irisapp/data/irisapp-datasecondary/
+17.53       - Creating database for new Secondary Data database /usr/irissys/mgr/irisapp/data/irisapp-datasecondary/
+17.60       - Assigned resource %DB_IRISAPP-DATASECONDARY to database IRISAPP-DATASECONDARY
+17.64       - Created global mapping Ens.SecondaryData* for namespace IRISAPP
+17.64       - Updating CPF
+17.65       - Moving changes to active configuration
+17.66       - Loading new mappings for namespace 'IRISAPP'
+17.69       - Activated CPF change
+17.69 EnableNamespace Complete.2026-03-16 15:03:58 1 ActivateConfiguration: Activating Configuration
+17.74 2026-03-16 15:03:58 3 Evaluate: /csp/${app} -> /csp/
+17.74 2026-03-16 15:03:58 3 Evaluate: ${cspdir}${app} ->
+17.74 2026-03-16 15:03:58 3 Evaluate: :%DB_${Namespace} -> :%DB_IRISAPP
+17.74 2026-03-16 15:03:58 1 CSPApplication: Creating /csp/ in IRISAPP
+17.74 2026-03-16 15:03:58 0 App.Installer: ERROR #879: Target role %DB_IRISAPP does not exist.
+17.74 2026-03-16 15:03:58 0 App.Installer: Installation failed at 2026-03-16 15:03:58
+17.74 2026-03-16 15:03:58 0 %Installer: Elapsed time 2.334696s
+17.74
+17.74 %SYS>
+17.74
+17.74 %SYS>
+17.74
+17.74 IRISAPP>
+17.74
+17.74 IRISAPP>
+17.74
+17.74 IRISAPP>
+20.97
+20.97 Building dependency graph...Done.
+21.06 [IRISAPP|vscode-per-namespace-settings]   Initialize START
+21.06 [IRISAPP|vscode-per-namespace-settings]   Initialize SUCCESS
+21.06 [IRISAPP|vscode-per-namespace-settings]   Reload START (/usr/irissys/ipm/vscode-per-namespace-settings/1.0.0/)
+21.26 [IRISAPP|vscode-per-namespace-settings]   Reload SUCCESS
+21.26 [vscode-per-namespace-settings]   Module object refreshed.
+21.26 [IRISAPP|vscode-per-namespace-settings]   Validate START
+21.26 [IRISAPP|vscode-per-namespace-settings]   Validate SUCCESS
+21.26 [IRISAPP|vscode-per-namespace-settings]   Compile START
+21.37 [IRISAPP|vscode-per-namespace-settings]   Compile SUCCESS
+21.37 [IRISAPP|vscode-per-namespace-settings]   Activate START
+21.37 [IRISAPP|vscode-per-namespace-settings]   Configure START
+21.40 Deleting class %Z.IPM.Bootstraps.Main
+21.41 [IRISAPP|vscode-per-namespace-settings]   Configure SUCCESS
+21.53 [IRISAPP|vscode-per-namespace-settings]   Activate SUCCESS
+22.16 IRISAPP>
+22.16
+22.16 IRISAPP>
+22.16
+22.16 IRISAPP>
+22.16
+22.16 IRISAPP>
+22.16
+22.16 IRISAPP>
+22.37
+22.37 Load started on 03/16/2026 15:04:02
+22.37 Loading file /home/irisowner/dev/module.xml as xml
+22.53 Imported document: ipm-module-budget.ZPM
+22.53 Load finished successfully.
+22.53
+22.53 Building dependency graph...Done.
+22.59 Created inverted dependency graph from dependency graph
+22.59 Constructed flat dependency list from inverted dependency graph
+22.59 Starting installation of dependencies...
+22.59
+22.59 Load started on 03/16/2026 15:04:03
+22.59 Loading file /home/irisowner/dev/module.xml as xml
+22.66 Imported document: ipm-module-budget.ZPM
+22.66 Load finished successfully.
+22.66
+22.66 Loading ipm-module-budget in process 649
+22.66 [IRISAPP|ipm-module-budget]       Initialize START
+22.66 Skipping preload - directory does not exist.
+22.66 [IRISAPP|ipm-module-budget]       Initialize SUCCESS
+22.66 [IRISAPP|ipm-module-budget]       Reload START (/home/irisowner/dev/)Segmentation fault (core dumped)
+------
+failed to solve: process "/bin/sh -c pip3 install -r requirements.txt &&     iris start IRIS && \tiris session IRIS < iris.script &&     iris stop IRIS quietly" did not complete successfully: exit code: 139
+[ec2-user@ip-172-31-44-82 ipm-module-budget]$
